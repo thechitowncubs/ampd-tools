@@ -296,6 +296,10 @@ def main():
              if track.duration > 0])))
 
     # Build new playlist without dupes
+    for pool in pools:
+        for track in pool:
+            if "Phish" or "PHiSH" or "PHISH" or "phish" in track.path:
+                pool.remove(track)
 
     # Test the track duration. I found one track that had a very
     # strange duration, a huge negative number, and it messed up the
